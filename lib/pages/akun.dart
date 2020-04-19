@@ -13,8 +13,8 @@ class _AkunState extends State<Akun> {
     return Scaffold(
       appBar: AppBar(
         bottomOpacity: 0,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        elevation: 1.0,
+        backgroundColor: Colors.white,
         title: Text(
           'Akun Saya',
           style: TextStyle(fontSize: 15, color: Colors.black),

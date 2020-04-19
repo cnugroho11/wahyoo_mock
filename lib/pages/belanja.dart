@@ -10,11 +10,48 @@ class _BelanjaState extends State<Belanja> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hai, Cahyo'),
+        bottomOpacity: 0,
+        elevation: 1.0,
+        backgroundColor: Colors.white,
+        title: Row(
+          children: <Widget>[
+            IconButton(
+              onPressed: (){},
+              icon: Icon(
+                Icons.search,
+                color: Colors.black12,
+              ),
+            ),
+            Text(
+              'Cari Produk',
+              style: TextStyle(fontSize: 15, color: Colors.black12),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Colors.black54,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.contact_phone,
+              color: Colors.black54,
+            ),
+          ),
+        ],
       ),
-      body: Center(
-        child: Text('Ini Belanja'),
-      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+
+          ],
+        ),
+      )
     );
   }
 }
