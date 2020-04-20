@@ -13,20 +13,22 @@ class _BelanjaState extends State<Belanja> {
         bottomOpacity: 0,
         elevation: 1.0,
         backgroundColor: Colors.white,
-        title: Row(
-          children: <Widget>[
-            IconButton(
-              onPressed: (){},
-              icon: Icon(
-                Icons.search,
-                color: Colors.black12,
-              ),
+        title: GestureDetector(
+          onTap: (){},
+          child: Container(
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.search,
+                  color: Colors.black12,
+                ),
+                Text(
+                  'Cari Produk',
+                  style: TextStyle(fontSize: 15, color: Colors.black12),
+                ),
+              ],
             ),
-            Text(
-              'Cari Produk',
-              style: TextStyle(fontSize: 15, color: Colors.black12),
-            ),
-          ],
+          ),
         ),
         actions: <Widget>[
           IconButton(

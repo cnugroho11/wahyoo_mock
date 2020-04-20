@@ -68,7 +68,7 @@ class _AkunState extends State<Akun> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Cahyo Nugroho'),
-                      Text('+6481xxxxxx')
+                      Text('+6281xxxxxx')
                     ],
                   )
                 ],
