@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:WahyooMock/models/product_model.dart';
+import 'package:WahyooMock/widgets/product_card.dart';
+import 'package:WahyooMock/widgets/voucher_card.dart';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 
 class Beranda extends StatefulWidget {
@@ -72,13 +74,37 @@ class _BerandaState extends State<Beranda> {
             ),
             SizedBox(height: 20,),
             //voucher box
+            VoucherCard(),
             Container(
-              padding: EdgeInsets.only(bottom: 5),
               height: 50,
               width: 350,
+              alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.green),
-                color: Colors.greenAccent,
+              ),
+              child: Text(
+                  'Produk Favorit',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+            Container(
+              child: MenuCard()
+            ),
+            Container(
+              height: 50,
+              child: GestureDetector(
+                onTap: (){},
+                child: Center(
+                  child: Text(
+                    'Lihat Semua Produk Favorit',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.orange
+                    ),
+                  ),
+                ),
               ),
             )
           ],
