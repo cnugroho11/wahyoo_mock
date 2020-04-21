@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:WahyooMock/models/product_model.dart';
+import 'package:WahyooMock/constants/url_api.dart' as url;
 
 class Beranda extends StatefulWidget {
+
+  final Product product;
+
+  Beranda({
+    @required this.product
+});
+
   @override
   _BerandaState createState() => _BerandaState();
 }

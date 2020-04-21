@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/pages/akun.dart';
-import 'package:flutterapp/pages/belanja.dart';
-import 'package:flutterapp/pages/beranda.dart';
-import 'package:flutterapp/pages/pesanan.dart';
+import 'package:WahyooMock/pages/akun.dart';
+import 'package:WahyooMock/pages/belanja.dart';
+import 'package:WahyooMock/pages/beranda.dart';
+import 'package:WahyooMock/pages/pesanan.dart';
 
 class HomePage extends StatefulWidget {
   @override
