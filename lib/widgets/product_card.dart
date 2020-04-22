@@ -17,6 +17,7 @@ class MenuCard extends StatefulWidget {
 
 class _MenuCardState extends State<MenuCard> {
   final formatter = NumberFormat('#,###', 'en_US');
+
   Future<List<dynamic>> fetchUsers() async {
     var result = await http.get(url.getProductAll + "2");
     return json.decode(result.body)['data'];
@@ -37,7 +38,7 @@ class _MenuCardState extends State<MenuCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 770,
+      height: 650,
       width: 400,
       child: FutureBuilder<List<dynamic>>(
         future: fetchUsers(),

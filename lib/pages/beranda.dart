@@ -93,7 +93,6 @@ class _BerandaState extends State<Beranda> {
               child: MenuCard()
             ),
             Container(
-              height: 50,
               child: GestureDetector(
                 onTap: (){},
                 child: Center(
@@ -106,7 +105,8 @@ class _BerandaState extends State<Beranda> {
                   ),
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 20,),
           ],
         ),
       )

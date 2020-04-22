@@ -1,4 +1,7 @@
+import 'package:WahyooMock/widgets/category_card.dart';
+import 'package:WahyooMock/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/widgets/voucher_card.dart';
 
 class Belanja extends StatefulWidget {
 
@@ -51,7 +54,40 @@ class _BelanjaState extends State<Belanja> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-
+            SizedBox(height: 15,),
+            Center(
+              child: VoucherCard(),
+            ),
+            Container(
+              height: 50,
+              width: 350,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+              ),
+              child: Text(
+                'Kategori Produk',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+            CategoryRow(),
+            Container(
+              height: 50,
+              width: 350,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+              ),
+              child: Text(
+                'Kategori Produk',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+            MenuCard(),
           ],
         ),
       )
