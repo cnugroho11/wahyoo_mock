@@ -7,10 +7,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class MenuCard extends StatefulWidget {
-  final Product product;
-
-  MenuCard({this.product});
-
   @override
   _MenuCardState createState() => _MenuCardState();
 }

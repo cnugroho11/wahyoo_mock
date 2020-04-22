@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:WahyooMock/pages/all_product.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/widgets/product_card.dart';
 import 'package:WahyooMock/widgets/voucher_card.dart';
@@ -95,12 +96,17 @@ class _BerandaState extends State<Beranda> {
             Container(
               child: GestureDetector(
                 onTap: (){},
-                child: Center(
-                  child: Text(
-                    'Lihat Semua Produk Favorit',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.orange
+                child: GestureDetector(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AllProduct()
+                  )),
+                  child: Center(
+                    child: Text(
+                      'Lihat Semua Produk Favorit',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.orange
+                      ),
                     ),
                   ),
                 ),
