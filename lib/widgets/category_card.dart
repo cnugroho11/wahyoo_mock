@@ -16,60 +16,72 @@ class _CategoryRowState extends State<CategoryRow> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             //air meneral
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.lightGreenAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.wineBottle,
+                  color: Colors.green,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.wineBottle,
-                color: Colors.green,
-              )),
             ),
             //aneka tepung
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.breadSlice,
+                  color: Colors.orange,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.breadSlice,
-                color: Colors.orange,
-              )),
             ),
             //beras
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.cheese,
+                  color: Colors.orange,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.cheese,
-                color: Colors.orange,
-              )),
             ),
             //biscuit & snack
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.cookieBite,
+                  color: Colors.orange,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.cookieBite,
-                color: Colors.orange,
-              )),
             ),
           ],
         ),
@@ -117,60 +129,72 @@ class _CategoryRowState extends State<CategoryRow> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             //buah & sayur
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.appleAlt,
+                  color: Colors.orange,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.appleAlt,
-                color: Colors.orange,
-              )),
             ),
             //bumbu dapur
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.lightGreenAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.pepperHot,
+                  color: Colors.green,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.pepperHot,
-                color: Colors.green,
-              )),
             ),
             //Cereal & bubur
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.yellowAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.egg,
+                  color: Colors.orange,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.egg,
-                color: Colors.orange,
-              )),
             ),
             //Semua Kategori
-            Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                color: Colors.lightGreenAccent,
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: FaIcon(
+                  FontAwesomeIcons.list,
+                  color: Colors.green,
+                )),
               ),
-              child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.list,
-                color: Colors.green,
-              )),
             ),
           ],
         ),

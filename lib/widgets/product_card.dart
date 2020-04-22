@@ -114,14 +114,15 @@ class _MenuCardState extends State<MenuCard> {
                                 width: 60,
                                 decoration: BoxDecoration(
                                   color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(10)
+                                  borderRadius: BorderRadius.circular(20)
                                 ),
                                 child: Center(
                                   child: Text(
                                     'LIHAT',
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.white
+                                      fontSize: 11,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold
                                     ),
                                   ),
                                 )

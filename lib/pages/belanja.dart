@@ -2,6 +2,7 @@ import 'package:WahyooMock/widgets/category_card.dart';
 import 'package:WahyooMock/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/voucher_card.dart';
+import 'package:WahyooMock/widgets/horizontal_list_card.dart';
 
 class Belanja extends StatefulWidget {
 
@@ -80,7 +81,7 @@ class _BelanjaState extends State<Belanja> {
               decoration: BoxDecoration(
               ),
               child: Text(
-                'Kategori Produk',
+                'Produk Favorit',
                 style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold
@@ -88,6 +89,59 @@ class _BelanjaState extends State<Belanja> {
               ),
             ),
             MenuCard(),
+            Container(
+              child: GestureDetector(
+                onTap: (){},
+                child: Center(
+                  child: Text(
+                    'Lihat Semua Produk Favorit',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.orange
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(width: 20,),
+                  Container(
+                    height: 50,
+                    alignment: Alignment.bottomCenter,
+                    decoration: BoxDecoration(
+                    ),
+                    child: Text(
+                      'Daftar Produk',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 185,),
+                  Container(
+                    height: 50,
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      'Lihat Semua',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+            Container(
+              child: HorizontalCard(),
+            )
           ],
         ),
       )
