@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/product_detail.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 import 'package:intl/intl.dart';
@@ -31,6 +32,10 @@ class _MenuCardState extends State<MenuCard> {
     return user['id'].toString();
   }
 
+  String _stock(Map<dynamic, dynamic> user) {
+    return user['point'].toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,7 +45,7 @@ class _MenuCardState extends State<MenuCard> {
         future: fetchUsers(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            print(_berat(snapshot.data[0]));
+            print(_stock(snapshot.data[0]));
             return ListView.builder(
                 padding: EdgeInsets.all(8),
                 itemCount: snapshot.data.length,
@@ -104,7 +109,15 @@ class _MenuCardState extends State<MenuCard> {
                             ),
                             SizedBox(width: 50,),
                             InkWell(
-                              onTap: (){},
+                              onTap: ()=> Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ProductDetail(
+                                    product_detail_name: _name(snapshot.data[index]),
+                                    product_detail_berat: _berat(snapshot.data[index]),
+                                    product_detail_stock: _stock(snapshot.data[index]),
+                                    product_detail_final_price: _final_price(snapshot.data[index]),
+                                    product_detail_picture: url.ftp+snapshot.data[index]['image'],
+                                  )
+                              )),
                               child: Container(
                                 height: 30,
                                 width: 60,
