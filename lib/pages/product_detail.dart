@@ -140,7 +140,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: 80,
                             decoration: BoxDecoration(
                                 color: Colors.blue,
-                                borderRadius: BorderRadius.circular(20)
+                                borderRadius: BorderRadius.circular(10)
                             ),
                             child: Center(
                               child: Text(
@@ -160,8 +160,25 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
           ),
-
         ],
+      ),
+      bottomSheet: InkWell(
+        onTap: (){},
+        child: Container(
+          height: 50,
+          width: 500,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.blue
+          ),
+          child: Text('PESAN',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        )
       ),
     );
   }
