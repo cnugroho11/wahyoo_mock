@@ -1,12 +1,13 @@
-import 'package:WahyooMock/widgets/all_product_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/widgets/all_product_widget.dart';
 
-class AllProduct extends StatefulWidget {
+class AllFavourite extends StatefulWidget {
   @override
-  _AllProductState createState() => _AllProductState();
+  _AllFavouriteState createState() => _AllFavouriteState();
 }
 
-class _AllProductState extends State<AllProduct> {
+class _AllFavouriteState extends State<AllFavourite> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,7 @@ class _AllProductState extends State<AllProduct> {
           color: Colors.black54,
         ),
         title: Text(
-          'Semua Produk',
+          'Semua Produk Favorit',
           style: TextStyle(fontSize: 15, color: Colors.black),
         ),
         actions: <Widget>[

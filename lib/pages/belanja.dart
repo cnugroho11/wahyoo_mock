@@ -1,8 +1,11 @@
+import 'package:WahyooMock/pages/all_product.dart';
+import 'package:WahyooMock/pages/all_favourite.dart';
 import 'package:WahyooMock/widgets/category_card.dart';
 import 'package:WahyooMock/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/voucher_card.dart';
 import 'package:WahyooMock/widgets/horizontal_list_card.dart';
+import 'package:WahyooMock/pages/search_page.dart';
 
 class Belanja extends StatefulWidget {
 
@@ -19,7 +22,9 @@ class _BelanjaState extends State<Belanja> {
         elevation: 1.0,
         backgroundColor: Colors.white,
         title: GestureDetector(
-          onTap: (){},
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SearchPage()
+          )),
           child: Container(
             child: Row(
               children: <Widget>[
@@ -91,7 +96,9 @@ class _BelanjaState extends State<Belanja> {
             MenuCard(),
             Container(
               child: GestureDetector(
-                onTap: (){},
+                onTap: ()=> Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AllFavourite()
+                )),
                 child: Center(
                   child: Text(
                     'Lihat Semua Produk Favorit',
@@ -123,19 +130,23 @@ class _BelanjaState extends State<Belanja> {
                     ),
                   ),
                   SizedBox(width: 185,),
-                  Container(
-                    height: 50,
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      'Lihat Semua',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.orange
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AllProduct()
+                    )),
+                    child: Container(
+                      height: 50,
+                      alignment: Alignment.bottomCenter,
+                      child: Text(
+                        'Lihat Semua',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orange
+                        ),
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
