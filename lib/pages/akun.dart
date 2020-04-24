@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:WahyooMock/pages/voucher_page.dart';
+import 'package:WahyooMock/pages/about_page.dart';
+import 'package:WahyooMock/pages/notification_page.dart';
 
 class Akun extends StatefulWidget {
   @override
@@ -82,7 +85,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => NotificationPage()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -154,7 +159,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => VoucherPage()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -178,7 +185,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AboutPage()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[

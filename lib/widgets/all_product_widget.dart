@@ -43,7 +43,6 @@ class _ProductScrollState extends State<ProductScroll> {
         future: fetchUsers(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            print(_berat(snapshot.data[0]));
             return ListView.builder(
                 padding: EdgeInsets.all(8),
                 itemCount: snapshot.data.length,

@@ -45,7 +45,6 @@ class _MenuCardState extends State<MenuCard> {
         future: fetchUsers(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            print(_stock(snapshot.data[0]));
             return ListView.builder(
                 padding: EdgeInsets.all(8),
                 itemCount: snapshot.data.length,
