@@ -25,6 +25,60 @@ class HelpPage extends StatelessWidget {
           ),
         ],
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 60,
+              child: FlatButton(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        child: Text('Pertanyaan Umum'),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.amber,
+                        size: 15,
+                      )
+                    ],
+                  )),
+            ),
+            Container(
+              height: 1,
+              width: 370,
+              decoration: BoxDecoration(color: Colors.black12),
+            ),
+            Container(
+              height: 60,
+              child: FlatButton(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        child: Text('Bicara dengan Customer Service'),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.amber,
+                        size: 15,
+                      )
+                    ],
+                  )),
+            ),
+            Container(
+              height: 1,
+              width: 370,
+              decoration: BoxDecoration(color: Colors.black12),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

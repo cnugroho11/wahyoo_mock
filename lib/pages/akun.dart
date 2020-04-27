@@ -6,6 +6,7 @@ import 'package:WahyooMock/pages/about_page.dart';
 import 'package:WahyooMock/pages/notification_page.dart';
 import 'package:WahyooMock/pages/address_page.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:WahyooMock/pages/pesanan.dart';
 
 class Akun extends StatefulWidget {
   @override
@@ -141,7 +142,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Pesanan()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[

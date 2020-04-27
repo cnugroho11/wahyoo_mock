@@ -14,6 +14,9 @@ class _PesananState extends State<Pesanan> {
         bottomOpacity: 0,
         elevation: 1.0,
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black54
+        ),
         title: Text(
           'Pesanan Saya',
           style: TextStyle(fontSize: 15, color: Colors.black),
