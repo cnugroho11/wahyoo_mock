@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 
 class AboutPage extends StatelessWidget {
   String abb = 'The Quintessential Quintuplets \n(Japanese: 五等分の花嫁, Hepburn: Go-Tōbun no Hanayome, lit. "Five Equal Brides") is a Japanese manga series written and illustrated by Negi Haruba.';
@@ -19,7 +20,9 @@ class AboutPage extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,

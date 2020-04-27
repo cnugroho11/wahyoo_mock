@@ -4,6 +4,7 @@ import 'package:WahyooMock/pages/all_favourite.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/widgets/product_card.dart';
 import 'package:WahyooMock/widgets/voucher_card.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 
 class Beranda extends StatefulWidget {
@@ -39,7 +40,9 @@ class _BerandaState extends State<Beranda> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,

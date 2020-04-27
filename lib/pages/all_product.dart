@@ -1,4 +1,5 @@
 import 'package:WahyooMock/widgets/all_product_widget.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 import 'package:flutter/material.dart';
 
 class AllProduct extends StatefulWidget {
@@ -30,7 +31,9 @@ class _AllProductState extends State<AllProduct> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,

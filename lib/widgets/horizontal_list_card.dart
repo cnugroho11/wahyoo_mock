@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/product_detail.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 import 'package:intl/intl.dart';
@@ -27,6 +28,10 @@ class _HorizontalCardState extends State<HorizontalCard> {
 
   String _berat(Map<dynamic, dynamic> user) {
     return user['id'].toString();
+  }
+
+  String _stock(Map<dynamic, dynamic> user) {
+    return user['point'].toString();
   }
 
   @override
@@ -91,7 +96,15 @@ class _HorizontalCardState extends State<HorizontalCard> {
                           ),
                           SizedBox(height: 40,),
                           GestureDetector(
-                            onTap: (){},
+                            onTap: ()=> Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ProductDetail(
+                                  product_detail_name: _name(snapshot.data[index]),
+                                  product_detail_berat: _berat(snapshot.data[index]),
+                                  product_detail_stock: _stock(snapshot.data[index]),
+                                  product_detail_final_price: _final_price(snapshot.data[index]),
+                                  product_detail_picture: url.ftp+snapshot.data[index]['image'],
+                                )
+                            )),
                             child: Container(
                               width: 150,
                               height: 40,

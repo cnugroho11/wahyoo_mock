@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 
 class Pesanan extends StatefulWidget {
   @override
@@ -26,7 +27,9 @@ class _PesananState extends State<Pesanan> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 
 class ProductDetail extends StatefulWidget {
 
@@ -44,7 +45,9 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,
@@ -140,7 +143,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             width: 80,
                             decoration: BoxDecoration(
                                 color: Colors.blue,
-                                borderRadius: BorderRadius.circular(10)
+                                borderRadius: BorderRadius.circular(20)
                             ),
                             child: Center(
                               child: Text(

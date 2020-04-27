@@ -4,6 +4,8 @@ import 'package:flutter/painting.dart';
 import 'package:WahyooMock/pages/voucher_page.dart';
 import 'package:WahyooMock/pages/about_page.dart';
 import 'package:WahyooMock/pages/notification_page.dart';
+import 'package:WahyooMock/pages/address_page.dart';
+import 'package:WahyooMock/pages/help_page.dart';
 
 class Akun extends StatefulWidget {
   @override
@@ -31,7 +33,9 @@ class _AkunState extends State<Akun> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HelpPage()
+            )),
             icon: Icon(
               Icons.contact_phone,
               color: Colors.black54,
@@ -111,7 +115,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: ()  => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AddressPage()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -211,7 +217,9 @@ class _AkunState extends State<Akun> {
               height: 60,
               child: FlatButton(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HelpPage()
+                  )),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
