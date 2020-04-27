@@ -39,7 +39,8 @@ class _ProductScrollState extends State<ProductScroll> {
   Widget build(BuildContext context) {
     return Container(
       height: 650,
-      child: FutureBuilder<List<dynamic>>(
+      child:
+      FutureBuilder<List<dynamic>>(
         future: fetchUsers(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {

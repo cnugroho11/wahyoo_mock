@@ -56,4 +56,29 @@ class Product{
       categoryName: (json.containsKey('categories'))?(json['categories'] != null)?json['categories']['name']:'no category':'no category',
     );
   }
+
+
+  addQuantity(){
+    if(quantity != 99){
+      quantity++;
+    }
+  }
+
+  decreaseQuantity(){
+    if(quantity != 0){
+      quantity--;
+    }
+  }
+
+  clearQuantity(){
+    quantity = 0;
+  }
+
+  addNote(String s){
+    note = s;
+  }
+
+  setQuantity(int i){
+    quantity = i;
+  }
 }

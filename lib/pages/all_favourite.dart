@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/all_product_widget.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:WahyooMock/pages/products_list_with_provider.dart';
+import 'package:WahyooMock/widgets/appbar_card.dart';
 
 class AllFavourite extends StatefulWidget {
   @override
@@ -24,25 +26,18 @@ class _AllFavouriteState extends State<AllFavourite> {
           style: TextStyle(fontSize: 15, color: Colors.black),
         ),
         actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.black54,
-            ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HelpPage()
-            )),
-            icon: Icon(
-              Icons.contact_phone,
-              color: Colors.black54,
-            ),
-          ),
+
+          AppBarCard()
         ],
       ),
-      body: ProductScroll(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            ProductListWithProvider()
+          ],
+        ),
+      )
+//      ProductScroll(),
     );
   }
 }
