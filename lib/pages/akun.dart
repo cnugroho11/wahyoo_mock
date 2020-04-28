@@ -7,6 +7,7 @@ import 'package:WahyooMock/pages/notification_page.dart';
 import 'package:WahyooMock/pages/address_page.dart';
 import 'package:WahyooMock/pages/help_page.dart';
 import 'package:WahyooMock/pages/pesanan.dart';
+import 'package:WahyooMock/widgets/appbar.dart';
 
 class Akun extends StatefulWidget {
   @override
@@ -17,32 +18,11 @@ class _AkunState extends State<Akun> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        bottomOpacity: 0,
-        elevation: 1.0,
-        backgroundColor: Colors.white,
-        title: Text(
-          'Akun Saya',
-          style: TextStyle(fontSize: 15, color: Colors.black),
+      appBar: AppbarWidget(
+        title: Text('Akun Saya',
+          style: TextStyle(fontSize: 16, color: Colors.black),
         ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.black54,
-            ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HelpPage()
-            )),
-            icon: Icon(
-              Icons.contact_phone,
-              color: Colors.black54,
-            ),
-          ),
-        ],
+        appBar: AppBar(),
       ),
       body: SingleChildScrollView(
         child: Column(

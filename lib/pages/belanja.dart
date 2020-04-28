@@ -7,6 +7,8 @@ import 'package:WahyooMock/widgets/voucher_card.dart';
 import 'package:WahyooMock/widgets/horizontal_list_card.dart';
 import 'package:WahyooMock/pages/search_page.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:WahyooMock/widgets/appbar.dart';
+
 
 class Belanja extends StatefulWidget {
 
@@ -18,10 +20,7 @@ class _BelanjaState extends State<Belanja> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        bottomOpacity: 0,
-        elevation: 1.0,
-        backgroundColor: Colors.white,
+      appBar: AppbarWidget(
         title: GestureDetector(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SearchPage()
@@ -41,26 +40,9 @@ class _BelanjaState extends State<Belanja> {
             ),
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.black54,
-            ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HelpPage()
-            )),
-            icon: Icon(
-              Icons.contact_phone,
-              color: Colors.black54,
-            ),
-          ),
-        ],
+        appBar: AppBar(),
       ),
-      body: SingleChildScrollView(
+        body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             SizedBox(height: 15,),

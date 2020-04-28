@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:WahyooMock/widgets/appbar.dart';
 
 class AboutPage extends StatelessWidget {
   String abb = 'The Quintessential Quintuplets \n(Japanese: 五等分の花嫁, Hepburn: Go-Tōbun no Hanayome, lit. "Five Equal Brides") is a Japanese manga series written and illustrated by Negi Haruba.';
