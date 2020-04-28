@@ -70,7 +70,7 @@ class _BerandaState extends State<Beranda> {
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(child: MenuCard()),
+              Container(child: ProductCardProvider()),
               Container(
                 child: GestureDetector(
                   onTap: () {},

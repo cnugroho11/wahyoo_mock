@@ -4,6 +4,7 @@ import 'package:WahyooMock/models/product_model.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:WahyooMock/providers/order_menu_providers.dart';
+import 'package:WahyooMock/constants/url_api.dart' as url;
 
 class ProductCard2 extends StatelessWidget{
   
@@ -26,9 +27,8 @@ class ProductCard2 extends StatelessWidget{
         children: <Widget>[
           Text(product.quantity.toString(), style: TextStyle(color: Colors.blue, fontSize: 20),),
           Text(product.name),
-          Text(product.image),
+          Image(image: NetworkImage(url.ftp+product.image),),
           Text('Rp '+formatter.format(product.priceBase).replaceAll(',', '.')),
-
           Container(
             child: (product.quantity == 0)?
               Container(

@@ -78,7 +78,7 @@ class _BelanjaState extends State<Belanja> {
                 ),
               ),
             ),
-            MenuCard(),
+            ProductCardProvider(),
             Container(
               child: GestureDetector(
                 onTap: ()=> Navigator.of(context).push(MaterialPageRoute(
