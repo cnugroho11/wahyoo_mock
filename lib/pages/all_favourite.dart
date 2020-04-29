@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/all_product_widget.dart';
 import 'package:WahyooMock/pages/help_page.dart';
-import 'package:WahyooMock/pages/products_list_with_provider.dart';
+import 'package:WahyooMock/pages/product_list.dart';
 import 'package:WahyooMock/widgets/appbar.dart';
 
 class AllFavourite extends StatefulWidget {
@@ -21,11 +21,7 @@ class _AllFavouriteState extends State<AllFavourite> {
         appBar: AppBar(),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            ProductListWithProvider()
-          ],
-        ),
+        child: ProductListProvider(),
       )
 //      ProductScroll(),
     );

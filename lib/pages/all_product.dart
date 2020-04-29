@@ -1,6 +1,7 @@
 import 'package:WahyooMock/widgets/all_product_widget.dart';
 import 'package:WahyooMock/pages/help_page.dart';
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/pages/product_list.dart';
 
 class AllProduct extends StatefulWidget {
   @override
@@ -41,7 +42,9 @@ class _AllProductState extends State<AllProduct> {
           ),
         ],
       ),
-      body: ProductScroll(),
+      body: SingleChildScrollView(
+          child: ProductListProvider()
+      ),
     );
   }
 }

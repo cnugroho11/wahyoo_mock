@@ -7,7 +7,7 @@ import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 import 'package:intl/intl.dart';
 
-class ProductCardProvider extends StatelessWidget {
+class ProductListProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final omp = Provider.of<OrderMenuProvider>(context);
@@ -21,9 +21,9 @@ class ProductCardProvider extends StatelessWidget {
           ? ListView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        itemCount: 5,
+        itemCount: omp.allProducts.length,
         itemBuilder: (context, i) {
-          return MenuCard(
+          return ProductList(
             product: omp.allProducts[i],
           );
         },
@@ -38,9 +38,9 @@ class ProductCardProvider extends StatelessWidget {
 }
 
 
-class MenuCard extends StatelessWidget {
+class ProductList extends StatelessWidget {
   final Product product;
-  MenuCard({this.product});
+  ProductList({this.product});
   final formatter = NumberFormat('#,###', 'en_US');
 
   @override
@@ -59,11 +59,11 @@ class MenuCard extends StatelessWidget {
                   height: 80,
                   width: 80,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    image: DecorationImage(
-                      image: NetworkImage(url.ftp+product.image),
-                      fit: BoxFit.cover
-                    )
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      image: DecorationImage(
+                          image: NetworkImage(url.ftp+product.image),
+                          fit: BoxFit.cover
+                      )
                   ),
                 ),
                 SizedBox(width: 10,),
@@ -88,7 +88,7 @@ class MenuCard extends StatelessWidget {
                         Container(
                           child: Text('Rp. '+formatter.format(product.priceBase).replaceAll(',', '.'),
                             style: TextStyle(
-                              color: Colors.green
+                                color: Colors.green
                             ),
                           ),
                         ),
@@ -99,16 +99,16 @@ class MenuCard extends StatelessWidget {
                             height: 30,
                             width: 60,
                             decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.all(Radius.circular(20))
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.all(Radius.circular(20))
                             ),
                             child: Center(
-                              child: Text('LIHAT',
+                              child: Text('TAMBAH',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 12
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 11
                                 ),
                               ),
                             ),

@@ -135,9 +135,7 @@ class _BelanjaState extends State<Belanja> {
                 ],
               ),
             ),
-            Container(
-              child: HorizontalCard(),
-            )
+            HorizontalListProvider()
           ],
         ),
       )
