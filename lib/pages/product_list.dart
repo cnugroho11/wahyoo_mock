@@ -45,6 +45,7 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final omp = Provider.of<OrderMenuProvider>(context);
     return Center(
       child: Container(
         height: 120,
@@ -86,18 +87,21 @@ class ProductList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
+                          width: 100,
                           child: Text('Rp. '+formatter.format(product.priceBase).replaceAll(',', '.'),
                             style: TextStyle(
                                 color: Colors.green
                             ),
                           ),
                         ),
-                        SizedBox(width: 130,),
-                        InkWell(
-                          onTap: (){},
+                        SizedBox(width: 80,),
+                        (product.quantity == 0) ? InkWell(
+                          onTap: (){
+                            omp.addProduct(product);
+                          },
                           child: Container(
                             height: 30,
-                            width: 60,
+                            width: 80,
                             decoration: BoxDecoration(
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.all(Radius.circular(20))
@@ -112,6 +116,59 @@ class ProductList extends StatelessWidget {
                                 ),
                               ),
                             ),
+                          ),
+                        ) :
+                        Container(
+                          height: 30,
+                          child: Row(
+                            children: <Widget>[
+                              GestureDetector(
+                                  onTap: (){
+                                    omp.decreaseProduct(product);
+                                  },
+                                child: Container(
+                                  width: 25,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blue
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    )
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 25,
+                                child: Center(
+                                  child: Text(
+                                    product.quantity.toString()
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: (){
+                                  omp.addProduct(product);
+                                },
+                                child: Container(
+                                  width: 25,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.blue
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         )
                       ],
