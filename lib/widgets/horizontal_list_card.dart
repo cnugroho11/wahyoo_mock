@@ -92,26 +92,38 @@ class HorizontalCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40,),
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                width: 150,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.all(Radius.circular(20))
-                ),
-                child: Center(
-                  child: Text(
-                    'BELI',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold
+            Consumer<OrderMenuProvider>(builder: (context, omp, child){
+              return GestureDetector(
+                onTap: (){
+                  print(product.id);
+                  Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => ProductDetail(
+                            omp: omp,
+                            product: omp.allProducts.firstWhere((a) => a.id == product.id),
+                          )
+                      )
+                  );
+                },
+                child: Container(
+                  width: 150,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                  child: Center(
+                    child: Text(
+                      'BELI',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
+              );
+            }),
           ],
         ),
       ),

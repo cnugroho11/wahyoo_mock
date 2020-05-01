@@ -1,36 +1,35 @@
+import 'package:WahyooMock/constants/url_api.dart' as url;
+import 'package:WahyooMock/models/product_model.dart';
+import 'package:WahyooMock/providers/order_menu_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:WahyooMock/widgets/appbar.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:provider/provider.dart';
 
-class ProductDetail extends StatefulWidget {
 
-  final product_detail_name;
-  final product_detail_final_price;
-  final product_detail_berat;
-  final product_detail_picture;
-  final product_detail_stock;
+class ProductDetail extends StatelessWidget {
+  final OrderMenuProvider omp;
+  final Product product;
 
   ProductDetail({
-    this.product_detail_name,
-    this.product_detail_final_price,
-    this.product_detail_berat,
-    this.product_detail_picture,
-    this.product_detail_stock
-});
+    this.omp,
+    this.product
+  });
 
-  @override
-  _ProductDetailState createState() => _ProductDetailState();
-}
-
-class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
+    final omp = Provider.of<OrderMenuProvider>(context);
+    final formatter = NumberFormat('#,###', 'en_US');
     return Scaffold(
       appBar: AppbarWidget(
-        title: Text(widget.product_detail_name,
-          style: TextStyle(fontSize: 16, color: Colors.black),
-        ),
         appBar: AppBar(),
+        title: Text(product.name,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16
+          ),
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -39,7 +38,7 @@ class _ProductDetailState extends State<ProductDetail> {
             child: Container(
               width: 350,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
                 border: Border.all(color: Colors.black12)
               ),
               child: Container(
@@ -47,25 +46,16 @@ class _ProductDetailState extends State<ProductDetail> {
                 height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(widget.product_detail_picture),
+                    image: NetworkImage(
+                      url.ftp+product.image
+                    ),
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20))
                 ),
               ),
             ),
           ),
-          Container(
-            height: 40,
-            width: 350,
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Stock tersisa '+widget.product_detail_stock+' Pcs',
-              style: TextStyle(
-                color: Colors.red
-              ),
-            ),
-          ),
-          Divider(),
+          SizedBox(height: 10,),
           Container(
             child: Column(
               children: <Widget>[
@@ -73,26 +63,26 @@ class _ProductDetailState extends State<ProductDetail> {
                 Container(
                   width: 350,
                   alignment: Alignment.centerLeft,
-                  child: Text(widget.product_detail_name,
+                  child: Text(product.name,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
+                SizedBox(height: 5,),
                 Container(
                   alignment: Alignment.centerLeft,
                   width: 350,
-                  child: Text(widget.product_detail_berat+ ' / Pcs',
-                  ),
+                  child: Text('Deskripsi :\n'+product.description),
                 ),
                 SizedBox(height: 10,),
                 Container(
                   alignment: Alignment.centerLeft,
                   width: 350,
-                  child: Text('Rp. '+widget.product_detail_final_price,
+                  child: Text('Rp '+formatter.format(product.priceFinal).replaceAll(',', '.'),
                     style: TextStyle(
-                      color: Colors.lightGreen
+                      color: Colors.green
                     ),
                   ),
                 ),
@@ -106,40 +96,95 @@ class _ProductDetailState extends State<ProductDetail> {
                     children: <Widget>[
                       Container(
                         alignment: Alignment.centerLeft,
-                        child: Text('Jumlah ',
+                        child: Text('Jumlah',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16
                           ),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: (){},
+                      (product.quantity == 0) ? InkWell(
+                        onTap: (){
+                          omp.addProduct(product);
+                        },
                         child: Container(
-                            height: 30,
-                            width: 80,
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(20)
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.all(Radius.circular(20))
+                          ),
+                          child: Center(
+                            child: Text('TAMBAH',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 11
+                              ),
                             ),
-                            child: Center(
-                              child: Text(
-                                '⊕ TAMBAH',
-                                style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ) :
+                      Container(
+                        height: 30,
+                        child: Row(
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: (){
+                                omp.decreaseProduct(product);
+                              },
+                              child: Container(
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blue
+                                ),
+                                child: Center(
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    )
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 25,
+                              child: Center(
+                                child: Text(
+                                    product.quantity.toString()
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: (){
+                                omp.addProduct(product);
+                              },
+                              child: Container(
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blue
+                                ),
+                                child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )
                                 ),
                               ),
                             )
+                          ],
                         ),
-                      ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
-          ),
+          )
         ],
       ),
       bottomSheet: InkWell(
@@ -158,9 +203,8 @@ class _ProductDetailState extends State<ProductDetail> {
               fontWeight: FontWeight.bold
             ),
           ),
-        )
+        ),
       ),
     );
   }
 }
-

@@ -15,32 +15,34 @@ class ProductCardProvider extends StatelessWidget {
     return Container(
       child: (omp.state == OrderMenuState.loading)
           ? Center(
-        child: CircularProgressIndicator(),
-      )
+              child: CircularProgressIndicator(),
+            )
           : (omp.state == OrderMenuState.none)
-          ? ListView.builder(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: 5,
-        itemBuilder: (context, i) {
-          return MenuCard(
-            product: omp.allProducts[i],
-          );
-        },
-      )
-          : Center(
-        child: Text(
-          'wew',
-        ),
-      ),
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 5,
+                  itemBuilder: (context, i) {
+                    return MenuCard(
+                      product: omp.allProducts[i],
+                    );
+                  },
+                )
+              : Center(
+                  child: Text(
+                    'wew',
+                  ),
+                ),
     );
   }
 }
 
-
 class MenuCard extends StatelessWidget {
   final Product product;
-  MenuCard({this.product});
+  final OrderMenuProvider omp;
+
+  MenuCard({this.product, this.omp});
+
   final formatter = NumberFormat('#,###', 'en_US');
 
   @override
@@ -51,27 +53,32 @@ class MenuCard extends StatelessWidget {
         width: 380,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: <Widget>[
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Container(
                   height: 80,
                   width: 80,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    image: DecorationImage(
-                      image: NetworkImage(url.ftp+product.image),
-                      fit: BoxFit.cover
-                    )
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      image: DecorationImage(
+                          image: NetworkImage(url.ftp + product.image),
+                          fit: BoxFit.cover)),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(
+                  width: 10,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      child: Text(product.name,
+                      child: Text(
+                        product.name,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -79,48 +86,70 @@ class MenuCard extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      child: Text(product.id.toString()+' / Pcs',),
+                      child: Text(
+                        'Point : ' + product.point.toString(),
+                      ),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
-                          child: Text('Rp. '+formatter.format(product.priceBase).replaceAll(',', '.'),
-                            style: TextStyle(
-                              color: Colors.green
-                            ),
+                          child: Text(
+                            'Rp. ' +
+                                formatter
+                                    .format(product.priceBase)
+                                    .replaceAll(',', '.'),
+                            style: TextStyle(color: Colors.green),
                           ),
                         ),
-                        SizedBox(width: 130,),
-                        InkWell(
-                          onTap: (){},
-                          child: Container(
-                            height: 30,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.all(Radius.circular(20))
-                            ),
-                            child: Center(
-                              child: Text('LIHAT',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 12
+                        SizedBox(
+                          width: 130,
+                        ),
+                        Consumer<OrderMenuProvider>(builder: (context, omp, child){
+                          return InkWell(
+                            onTap: () {
+                              print(product.id);
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductDetail(
+                                        omp: omp,
+                                        product: omp.allProducts.firstWhere((a) => a.id == product.id),
+                                      )
+                                  )
+                              );
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                              child: Center(
+                                child: Text(
+                                  'LIHAT',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: 12),
                                 ),
                               ),
                             ),
-                          ),
-                        )
+                          );
+                        }),
                       ],
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Divider()
           ],
         ),

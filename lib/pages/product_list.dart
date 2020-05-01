@@ -80,7 +80,7 @@ class ProductList extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      child: Text(product.id.toString()+' / Pcs',),
+                      child: Text('Point : '+product.point.toString(),),
                     ),
                     SizedBox(height: 10,),
                     Row(
