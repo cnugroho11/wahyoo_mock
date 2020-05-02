@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:WahyooMock/providers/order_menu_providers.dart';
+import 'package:WahyooMock/pages/checkout_page.dart';
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor = Colors.white;
@@ -26,7 +27,9 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
             Align(
               alignment: Alignment.center,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => CheckoutPage()
+                )),
                 icon: Icon(
                   Icons.shopping_cart,
                   color: Colors.black54,

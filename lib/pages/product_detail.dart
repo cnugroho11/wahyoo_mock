@@ -56,6 +56,7 @@ class ProductDetail extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10,),
+          Divider(),
           Container(
             child: Column(
               children: <Widget>[

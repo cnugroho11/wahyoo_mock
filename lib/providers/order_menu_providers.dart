@@ -56,6 +56,9 @@ class OrderMenuProvider with ChangeNotifier{
     notifyListeners();
   }
 
-
+  clearProduct(Product p){
+    p.quantity = 0;
+    quantityInCart = 0;
+  }
 
 }
