@@ -86,6 +86,27 @@ class ProductCardCheckout extends StatelessWidget {
                 children: <Widget>[
                   GestureDetector(
                     onTap: (){
+                      omp.clearProduct(product);
+                    },
+                    child: Container(
+                      width: 25,
+                      height: 25,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black12
+                      ),
+                      child: Center(
+                          child: Icon(
+                            Icons.delete,
+                            color: Colors.black26,
+                            size: 15,
+                          )
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  GestureDetector(
+                    onTap: (){
                       omp.decreaseProduct(product);
                     },
                     child: Container(
@@ -99,6 +120,7 @@ class ProductCardCheckout extends StatelessWidget {
                           child: Icon(
                             Icons.remove,
                             color: Colors.white,
+                            size: 20,
                           )
                       ),
                     ),
@@ -120,12 +142,13 @@ class ProductCardCheckout extends StatelessWidget {
                       height: 25,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.blue
+                          color: Colors.blue,
                       ),
                       child: Center(
                           child: Icon(
                             Icons.add,
                             color: Colors.white,
+                            size: 20,
                           )
                       ),
                     ),

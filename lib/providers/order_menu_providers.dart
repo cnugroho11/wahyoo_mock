@@ -18,6 +18,7 @@ class OrderMenuProvider with ChangeNotifier{
   List<Product> _allProducts = List();
   List<Product> get allProducts => _allProducts;
   int quantityInCart = 0;
+  double totalPrice = 0;
 
 
   _changeState(OrderMenuState s){
@@ -44,6 +45,7 @@ class OrderMenuProvider with ChangeNotifier{
     if(p.quantity != 99){
       p.quantity++;
       quantityInCart++;
+      totalPrice += p.priceFinal;
     }
     notifyListeners();
   }
@@ -52,13 +54,18 @@ class OrderMenuProvider with ChangeNotifier{
     if(p.quantity != 0){
       p.quantity--;
       quantityInCart--;
+      totalPrice -= p.priceFinal;
     }
     notifyListeners();
   }
 
   clearProduct(Product p){
-    p.quantity = 0;
-    quantityInCart = 0;
+    if(p.quantity != 0){
+      quantityInCart -= p.quantity;
+      p.quantity = 0;
+      totalPrice -= p.quantity * p.priceFinal;
+    }
+    notifyListeners();
   }
 
 }

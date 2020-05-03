@@ -178,7 +178,7 @@ class ProductList extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10,),
-            Divider()
+            Divider(),
           ],
         ),
       ),
