@@ -5,6 +5,7 @@ import 'package:WahyooMock/widgets/appbar.dart';
 import 'package:WahyooMock/widgets/product_card_checkout.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:intl/intl.dart';
 
 orderListContainer(OrderMenuProvider omp) {
   return Container(
@@ -12,6 +13,7 @@ orderListContainer(OrderMenuProvider omp) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
+          margin: EdgeInsets.only(bottom: 90),
           child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -33,10 +35,9 @@ class CheckoutPage extends StatelessWidget {
   final OrderMenuProvider omp;
   final Product product;
 
-  CheckoutPage({
-    this.product,
-    this.omp,
-  });
+  CheckoutPage({this.product, this.omp,});
+
+  final formatter = NumberFormat('#,###', 'en_US');
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +114,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     orderListContainer(omp),
+                    SizedBox(height: 10,)
                   ],
                 ),
               )
@@ -141,6 +143,68 @@ class CheckoutPage extends StatelessWidget {
                 ],
               )
         ),
+        floatingActionButton: (omp.quantityInCart != 0 ) ? InkWell(
+          child: Container(
+            height: 65,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(0.0, 1.0), //(x,y)
+                  blurRadius: 6.0,
+                ),
+              ],
+            ),
+            child: Center(
+              child: Container(
+                width: 350,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(height: 10,),
+                          Container(
+                            width: 150,
+                              child: Text('Total Pembayaran')
+                          ),
+                          SizedBox(height: 5,),
+                          Container(
+                            width: 150,
+                              child: Text('Rp '+formatter.format(omp.totalPrice).replaceAll(',', '.'),
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 16
+                                ),
+                              )
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                      ),
+                      child: Text('PILIH PEMBAYARAN',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ),
+          ),
+        ) : Container(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       );
     });
   }

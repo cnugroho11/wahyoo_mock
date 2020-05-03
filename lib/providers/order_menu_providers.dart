@@ -62,8 +62,8 @@ class OrderMenuProvider with ChangeNotifier{
   clearProduct(Product p){
     if(p.quantity != 0){
       quantityInCart -= p.quantity;
-      p.quantity = 0;
       totalPrice -= p.quantity * p.priceFinal;
+      p.quantity = 0;
     }
     notifyListeners();
   }

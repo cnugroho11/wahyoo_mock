@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:WahyooMock/providers/order_menu_providers.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:provider/provider.dart';
-import 'package:WahyooMock/pages/checkout_page.dart';
+import 'package:WahyooMock/widgets/floating_cart_button.dart';
 
 class AllFavourite extends StatefulWidget {
   final Product product;
@@ -39,70 +39,7 @@ class _AllFavouriteState extends State<AllFavourite> {
       ),
 //      ProductScroll(),
       floatingActionButton: (omp.quantityInCart != 0)
-          ? InkWell(
-              onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CheckoutPage())),
-              child: Container(
-                width: 380,
-                height: 70,
-                decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Center(
-                  child: Container(
-                    width: 330,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Container(
-                          child: Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.shopping_basket,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Container(
-                                child: Text(
-                                  'Orders',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: <Widget>[
-                              Container(
-                                child: Text(
-                                  omp.quantityInCart.toString(),
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Container(
-                                child: Text(
-                                  'Rp ' +
-                                      formatter
-                                          .format(omp.totalPrice)
-                                          .replaceAll(',', '.'),
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            )
+          ? FloatingCartButton()
           : Container(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
