@@ -75,7 +75,7 @@ class ProductDetail extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   width: 350,
-                  child: Text('Deskripsi :\n'+product.description),
+                  child: Text(product.description),
                 ),
                 SizedBox(height: 10,),
                 Container(

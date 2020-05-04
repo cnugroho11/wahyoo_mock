@@ -176,7 +176,8 @@ class CheckoutPage extends StatelessWidget {
                               child: Text('Rp '+formatter.format(omp.totalPrice).replaceAll(',', '.'),
                                 style: TextStyle(
                                   color: Colors.green,
-                                  fontSize: 16
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold
                                 ),
                               )
                           )

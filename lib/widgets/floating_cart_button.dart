@@ -18,8 +18,8 @@ class FloatingCartButton extends StatelessWidget {
     final omp = Provider.of<OrderMenuProvider>(context);
     return Container(
       child: InkWell(
-        onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => CheckoutPage())),
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => CheckoutPage())),
         child: Container(
           width: 380,
           height: 70,
@@ -38,6 +38,7 @@ class FloatingCartButton extends StatelessWidget {
                         Icon(
                           Icons.shopping_basket,
                           color: Colors.white,
+                          size: 25,
                         ),
                         SizedBox(
                           width: 5,
@@ -45,7 +46,10 @@ class FloatingCartButton extends StatelessWidget {
                         Container(
                           child: Text(
                             'Orders',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
                           ),
                         )
                       ],
@@ -56,7 +60,7 @@ class FloatingCartButton extends StatelessWidget {
                       children: <Widget>[
                         Container(
                           child: Text(
-                            omp.quantityInCart.toString(),
+                            omp.quantityInCart.toString()+' Item(s)',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -69,7 +73,11 @@ class FloatingCartButton extends StatelessWidget {
                                 formatter
                                     .format(omp.totalPrice)
                                     .replaceAll(',', '.'),
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
                       ],
