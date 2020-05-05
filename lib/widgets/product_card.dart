@@ -21,7 +21,7 @@ class ProductCardProvider extends StatelessWidget {
               ? ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: (omp.allProducts.length<5)?omp.allProducts.length : 5,
                   itemBuilder: (context, i) {
                     return MenuCard(
                       product: omp.allProducts[i],
@@ -39,14 +39,14 @@ class ProductCardProvider extends StatelessWidget {
 
 class MenuCard extends StatelessWidget {
   final Product product;
-  final OrderMenuProvider omp;
 
-  MenuCard({this.product, this.omp});
+  MenuCard({this.product,});
 
   final formatter = NumberFormat('#,###', 'en_US');
 
   @override
   Widget build(BuildContext context) {
+    final omp = Provider.of<OrderMenuProvider>(context);
     return Center(
       child: Container(
         height: 120,

@@ -28,7 +28,7 @@ class OrderMenuProvider with ChangeNotifier{
 
   getAllProducts() async {
     _changeState(OrderMenuState.loading);
-    var result = await http.get(url.getProductAll + "2");
+    var result = await http.get(url.getProductAll + "3");
     print(result.statusCode);
     if(result.statusCode == 200){
       _allProducts = (json.decode(result.body)['data'] as List).map((a) => Product.fromJson(a)).toList();
@@ -64,6 +64,13 @@ class OrderMenuProvider with ChangeNotifier{
       quantityInCart -= p.quantity;
       totalPrice -= p.quantity * p.priceFinal;
       p.quantity = 0;
+    }
+    notifyListeners();
+  }
+
+  hapusPesananSemua(){
+    for(Product ppp in _allProducts.where((a) => a.quantity != 0)){
+      clearProduct(ppp);
     }
     notifyListeners();
   }

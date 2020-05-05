@@ -98,7 +98,9 @@ class CheckoutPage extends StatelessWidget {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                omp.hapusPesananSemua();
+                              },
                               child: Container(
                                 child: Text(
                                   'Hapus Pesanan',
