@@ -99,7 +99,7 @@ class CheckoutPage extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                omp.hapusPesananSemua();
+                                omp.clearAllProduct();
                               },
                               child: Container(
                                 child: Text(

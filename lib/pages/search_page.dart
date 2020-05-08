@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/category_card.dart';
 import 'package:WahyooMock/pages/help_page.dart';
+import 'package:WahyooMock/pages/product_by_category_screen.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -84,7 +85,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   Center(
                     child: Container(
-                      child: CategoryRow(),
+                      child: CategoryRowProvider(),
                     ),
                   )
                 ],

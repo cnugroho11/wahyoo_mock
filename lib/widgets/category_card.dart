@@ -1,241 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:WahyooMock/providers/order_menu_providers.dart';
+import 'package:WahyooMock/models/category_model.dart';
+import 'package:WahyooMock/constants/url_api.dart' as url;
+import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CategoryRow extends StatefulWidget {
-  @override
-  _CategoryRowState createState() => _CategoryRowState();
-}
-
-class _CategoryRowState extends State<CategoryRow> {
+class CategoryRowProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            //air meneral
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.lightGreenAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.wineBottle,
-                  color: Colors.green,
-                )),
-              ),
-            ),
-            //aneka tepung
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.breadSlice,
-                  color: Colors.orange,
-                )),
-              ),
-            ),
-            //beras
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.cheese,
-                  color: Colors.orange,
-                )),
-              ),
-            ),
-            //biscuit & snack
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.cookieBite,
-                  color: Colors.orange,
-                )),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              width: 55,
-              child: Text(
-                'Air Mineral',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Aneka Tepung',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Beras',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Biscuit & Snack',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            //buah & sayur
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.appleAlt,
-                  color: Colors.orange,
-                )),
-              ),
-            ),
-            //bumbu dapur
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.lightGreenAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.pepperHot,
-                  color: Colors.green,
-                )),
-              ),
-            ),
-            //Cereal & bubur
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.egg,
-                  color: Colors.orange,
-                )),
-              ),
-            ),
-            //Semua Kategori
-            GestureDetector(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                decoration: BoxDecoration(
-                  color: Colors.lightGreenAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                    child: FaIcon(
-                  FontAwesomeIcons.list,
-                  color: Colors.green,
-                )),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              width: 55,
-              child: Text(
-                'Buah & Sayur',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Bumbu Dapur',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Cereal & Bubur',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-            Container(
-              width: 55,
-              child: Text(
-                'Semua Kategori',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5),
-              ),
-            ),
-          ],
-        ),
-      ],
+    return Consumer<OrderMenuProvider>(
+      builder: (_,omp,a){
+        return Container(
+          width: 200,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('Pilih Category'),
+              ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: omp.categoryNames.length,
+                  itemBuilder: (context, i){
+                    return GestureDetector(
+                      onTap: (){},
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 13,vertical: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(omp.allCategoryNames[i],style: TextStyle(color: Colors.black)),
+                            Text(omp.products.where((a) => a.categoryName == omp.categoryNames[i]).length.toString(),style: TextStyle(color: Colors.black),),
+                          ],
+                        ),
+                      ),
+                    );
+                  })
+            ],
+          ),
+        );
+      },
     );
   }
 }
