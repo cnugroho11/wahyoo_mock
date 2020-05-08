@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:WahyooMock/widgets/category_card.dart';
 import 'package:WahyooMock/pages/help_page.dart';
-import 'package:WahyooMock/pages/product_by_category_screen.dart';
+import 'package:WahyooMock/pages/product_by_category.dart';
 
 class SearchPage extends StatefulWidget {
   @override

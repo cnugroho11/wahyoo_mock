@@ -1,6 +1,7 @@
 import 'package:WahyooMock/providers/order_menu_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:WahyooMock/widgets/appbar.dart';
 import 'package:WahyooMock/models/product_model.dart';
 import 'package:WahyooMock/widgets/product_card.dart';
 
@@ -14,15 +15,20 @@ class ProductByCategoryScreen extends StatelessWidget{
     final omp = Provider.of<OrderMenuProvider>(context);
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category),
+      appBar: AppbarWidget(
+        appBar: AppBar(),
+        title: Text(category,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: <Widget>[
               Container(
-
                 child: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),

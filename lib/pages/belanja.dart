@@ -8,7 +8,7 @@ import 'package:WahyooMock/widgets/horizontal_list_card.dart';
 import 'package:WahyooMock/pages/search_page.dart';
 import 'package:WahyooMock/pages/help_page.dart';
 import 'package:WahyooMock/widgets/appbar.dart';
-import 'package:WahyooMock/pages/product_by_category_screen.dart';
+import 'package:WahyooMock/pages/product_by_category.dart';
 
 
 class Belanja extends StatefulWidget {
@@ -24,7 +24,7 @@ class _BelanjaState extends State<Belanja> {
       appBar: AppbarWidget(
         title: GestureDetector(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ProductByCategoryScreen('espresso-based')
+              builder: (context) => SearchPage()
           )),
           child: Container(
             child: Row(
@@ -65,8 +65,7 @@ class _BelanjaState extends State<Belanja> {
               ),
             ),
             Container(
-              width: 300,
-                height: 200,
+              width: 350,
                 child: CategoryRowProvider()
             ),
             Container(

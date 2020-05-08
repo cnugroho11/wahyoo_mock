@@ -10,9 +10,13 @@ enum OrderMenuState { init, none, loading, error }
 class OrderMenuProvider with ChangeNotifier {
   OrderMenuProvider() {
     print('prvider jalan');
-    getAllProducts();
-    getAllCategoryNames();
-    getCategories();
+    init();
+  }
+
+  init() async {
+    await getAllProducts();
+    await getAllCategoryNames();
+    await getCategories();
     _getCategoriesForHomeScreen();
   }
 
@@ -63,7 +67,6 @@ class OrderMenuProvider with ChangeNotifier {
           .map((a) => Category.fromJson(a['categories']))
           .toList();
       print(_allProducts.length);
-      print(_allCategories);
       _changeState(OrderMenuState.none);
     } else {
       print(result.statusCode);
