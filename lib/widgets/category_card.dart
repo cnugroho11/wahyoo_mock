@@ -14,8 +14,7 @@ class CategoryRowProvider extends StatelessWidget {
     return Consumer<OrderMenuProvider>(
       builder: (_, omp, a) {
         return Container(
-          color: Colors.red,
-          height: 200,
+          height: 150,
           child: GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

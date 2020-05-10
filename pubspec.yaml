@@ -28,6 +28,7 @@ dependencies:
   font_awesome_flutter:
   provider:
   geolocator: ^5.1.3
+  google_maps_flutter: ^0.5.11
 
 dev_dependencies:
   flutter_test:

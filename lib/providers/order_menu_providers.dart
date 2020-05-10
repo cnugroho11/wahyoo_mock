@@ -21,7 +21,6 @@ class OrderMenuProvider with ChangeNotifier {
   }
 
   OrderMenuState _state = OrderMenuState.init;
-
   OrderMenuState get state => _state;
 
   List<Product> _product = List();
