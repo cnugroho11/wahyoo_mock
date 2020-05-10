@@ -17,6 +17,7 @@ class Product{
   bool isBestSeller;
   String image;
   String categoryName;
+  String categoryImage;
 
   int quantity = 0;
   String note = '';
@@ -32,6 +33,7 @@ class Product{
     this.priceFinal, this.categoryName,
     this.pricePerItem,
     this.pricePerKilo,
+    this.categoryImage
   });
 
   factory Product.fromJson(Map<String, dynamic>json){
@@ -54,6 +56,7 @@ class Product{
       isBestSeller: json['is_bestseller'] != 0,
       image: json['image'],
       categoryName: (json.containsKey('categories'))?(json['categories'] != null)?json['categories']['name']:'no category':'no category',
+      categoryImage: (json.containsKey('categories'))?(json['categories'] != null)?json['categories']['image']:'no category':'no category',
     );
   }
 

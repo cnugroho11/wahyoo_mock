@@ -4,10 +4,32 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:WahyooMock/constants/url_api.dart' as url;
 import 'package:WahyooMock/models/category_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum OrderMenuState { init, none, loading, error }
 
 class OrderMenuProvider with ChangeNotifier {
+
+  OrderMenuState _state = OrderMenuState.init;
+  OrderMenuState get state => _state;
+
+  List<Product> _allProducts = List();
+
+  List<Product> get allProducts => _allProducts;
+  List<Category> _allCategories = List();
+  List<Category> _categories = List();
+  List<Category> _allImages = List();
+
+  List<Category> get categories => _categories;
+
+  SharedPreferences _sp;
+
+  List<String> categoryImages = [];
+  List<String> categoryNames = [];
+  List<String> allCategoryNames = [];
+  int quantityInCart = 0;
+  double totalPrice = 0;
+
   OrderMenuProvider() {
     print('prvider jalan');
     init();
@@ -17,27 +39,9 @@ class OrderMenuProvider with ChangeNotifier {
     await getAllProducts();
     await getAllCategoryNames();
     await getCategories();
+    await getAllCategoryImages();
     _getCategoriesForHomeScreen();
   }
-
-  OrderMenuState _state = OrderMenuState.init;
-  OrderMenuState get state => _state;
-
-  List<Product> _product = List();
-
-  List<Product> get products => _product;
-  List<Product> _allProducts = List();
-
-  List<Product> get allProducts => _allProducts;
-  List<Category> _allCategories = List();
-  List<Category> _categories = List();
-
-  List<Category> get categories => _categories;
-
-  List<String> categoryNames = [];
-  List<String> allCategoryNames = [];
-  int quantityInCart = 0;
-  double totalPrice = 0;
 
   _changeState(OrderMenuState s) {
     _state = s;
@@ -55,6 +59,7 @@ class OrderMenuProvider with ChangeNotifier {
   }
 
   getAllProducts() async {
+    _sp = await SharedPreferences.getInstance();
     _changeState(OrderMenuState.loading);
     var result = await http.get(url.getProductAll + "2");
     print(result.statusCode);
@@ -75,6 +80,7 @@ class OrderMenuProvider with ChangeNotifier {
   }
 
   getAllCategoryNames() async {
+    _sp = await SharedPreferences.getInstance();
     allCategoryNames = [];
     for (Product p in _allProducts) {
       allCategoryNames.add(p.categoryName);
@@ -83,9 +89,17 @@ class OrderMenuProvider with ChangeNotifier {
     print(allCategoryNames);
   }
 
+  getAllCategoryImages() async {
+    _sp = await SharedPreferences.getInstance();
+    for (Product p in _allProducts){
+      categoryImages.add(p.categoryImage);
+    }
+    categoryImages = categoryImages.toSet().toList();
+  }
+
   getCategories() async {
     categoryNames = [];
-    for (Product p in _product) {
+    for (Product p in _allProducts) {
       categoryNames.add(p.categoryName);
     }
     categoryNames = categoryNames.toSet().toList();

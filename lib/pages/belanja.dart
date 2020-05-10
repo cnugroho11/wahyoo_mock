@@ -65,7 +65,7 @@ class _BelanjaState extends State<Belanja> {
               ),
             ),
             Container(
-              width: 350,
+              width: 400,
                 child: CategoryRowProvider()
             ),
             Container(
